@@ -30,6 +30,10 @@
     height: 40px;
     padding: 0 8px;
 }
+.form_control textarea{
+    padding: 8px;
+}
+
 .form_control label{
     font-size: 14px;
     position: absolute;

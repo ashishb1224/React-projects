@@ -3,10 +3,20 @@ import Button from "../button/Button";
 import { MdMessage } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
+import { useState } from "react";
 const Contactform = () => {
+  const [name , setName] = useState("ashu")
+  const [email , setEmail] = useState("ashishbhardwaj@gmail.com")
+  const [text , setText] = useState("Do some coding")
   const onSubmit = (event) => {
+    
     event.preventDefault();
-    console.log("event")
+
+    setName(event.target[0].value)
+    setEmail(event.target[1].value)
+    setText(event.target[2].value)
+
+    console.log({name , email , text})
   };
   return (
 
@@ -24,14 +34,14 @@ const Contactform = () => {
             <Button isoutline={true} text="VIA EMAIL FORM" icon={<HiMail fontSize="24px" />} />
         </div>
 
-        <form onClick={onSubmit}>
+        <form onSubmit={onSubmit}>
             <div className={styles.form_control}>
                 <label htmlFor="name">Name</label>
                 <input type="text" name="name" />
             </div>
             <div className={styles.form_control}>
                 <label htmlFor="email">Email</label>
-                <input type="email" name="Email" />
+                <input type="email" />
             </div>
             <div className={styles.form_control}>
                 <label htmlFor="Text">Text</label>
@@ -43,6 +53,7 @@ const Contactform = () => {
              <Button text="Submit" />
             </div>
         </form>
+        <div>{name + " " + email + " " + text}</div>
       </div>
       <div className="content-img">
         <img src="/image/logo2.png" alt="logo2" />
